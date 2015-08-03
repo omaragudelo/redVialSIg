@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/template/common/layout.xhtml">
+		<ui:define name="content">
+			<h:form styleClass="form">
+				<!-- Formulario -->
+
+				<p:fieldset legend="#{msg['contrasenaActual']}">
+					<h:panelGrid styleClass="panelGrid" columns="3">
+						<p:outputLabel styleClass="label" for="contrasenaActual" value="#{msg['contrasenaActual']}" />
+						<p:inputText id="contrasenaActual" maxlength="10" required="true" requiredMessage="#{msg['contrasenaActualRequerido']}" />
+						<p:message for="contrasenaActual" />
+
+						<p:outputLabel styleClass="label" for="nuevaContrasena" value="#{msg['nuevaContrasena']}" />
+						<p:inputText id="nuevaContrasena" styleClass="texto" maxlength="10" required="true" requiredMessage="#{msg['nuevaContrasenaRequerido']}"  />
+						<p:message for="nuevaContrasena"  />
+
+						<p:outputLabel styleClass="label" for="confirmacionNuevaContrasena" value="#{msg['confirmacionNuevaContrasena']}" />
+						<p:inputText id="confirmacionNuevaContrasena" styleClass="texto" maxlength="10" required="true" requiredMessage="#{msg['confirmacionNuevaContrasenaRequerido']}" />
+						<p:message for="confirmacionNuevaContrasena" />
+						
+						<p:outputLabel for="cantidad" value="Cantidad:" />
+									<p:inputText id="cantidad"
+										value="#{ingresarEditarInfraestructuraFisica.cantidad1}"
+										type="number" maxlength="20" required="true"
+										requiredMessage="Por favor ingrese la cantidad" />
+									<p:message for="cantidad" />
+
+						<p:commandButton icon="ui-icon-search">
+							<f:setPropertyActionListener value="#{obj}" target="#{bean.dato}" />
+						</p:commandButton>
+					</h:panelGrid>
+				</p:fieldset>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
